@@ -48,7 +48,7 @@ contract ErstwhileHerosNFT is
         string imgUrl;
         NFT_STATE nftState;
     }
-    uint256[] public s_randomWords;
+    //uint256[] public s_randomWords;
 
     //events
     event NFTListed(uint256 tokenId, string tokenName, string tokenURI, address issuer, uint256 quantity, uint256 price, uint256 nftPostedTimeStamp, string imgUrl, NFT_STATE state);
@@ -83,9 +83,9 @@ contract ErstwhileHerosNFT is
         i_callbackGasLimit = callbackGasLimit;
         nftInterval = interval;
 
-        s_randomWords.push(4242);
-        s_randomWords.push(6245);
-        s_randomWords.push(5245);
+        //s_randomWords.push(4242);
+        //s_randomWords.push(6245);
+        //s_randomWords.push(5245);
     }
 
     function addToken(uint256 _tokenId, string memory _tokenName, string memory _tokenURI, uint256 _quantity, uint256 _price, string memory _imgUrl
@@ -171,7 +171,7 @@ contract ErstwhileHerosNFT is
         bool hasToCallVRF = dailyNFTsCleanup();
 
         if (hasToCallVRF) {
-            /*uint32 numWords =  uint32(currentClosingNFTs.length);
+            uint32 numWords =  uint32(currentClosingNFTs.length);
 
             uint256 requestId = i_vrfCoordinator.requestRandomWords(
                 i_gasLane,
@@ -179,9 +179,9 @@ contract ErstwhileHerosNFT is
                 REQUEST_CONFIRMATIONS,
                 i_callbackGasLimit,
                 numWords
-            );*/
+            );
             //Temporary: Call the fullfill directly
-            fulfillRandomWords(1, s_randomWords);
+            //fulfillRandomWords(1, s_randomWords);
         }
     }
 
